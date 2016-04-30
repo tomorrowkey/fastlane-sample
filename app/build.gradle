@@ -11,10 +11,30 @@ android {
         versionCode 12
         versionName "0.0.15"
     }
-    buildTypes {
+
+    signingConfigs {
+        debug {
+            storeFile file("keystore/debug.keystore")
+            storePassword "android"
+            keyAlias "androiddebugkey"
+            keyPassword "android"
+        }
         release {
+            storeFile file(env('HOME') + '/.android/release.keystore')
+            storePassword env('KEYSTORE_STORE_PASSWORD')
+            keyAlias env('KEYSTORE_KEY_ALIAS')
+            keyPassword env('KEYSTORE_KEY_PASSWORD')
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
         }
     }
 }
@@ -23,4 +43,8 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.3.0'
+}
+
+def env(key) {
+    System.getenv(key)
 }
