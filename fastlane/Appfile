@@ -1,0 +1,2 @@
+json_key_file "~/.fastlane/keys/google_play_android_developer-a14e62358203.json" # Path to the json secret file - Follow https://github.com/fastlane/supply#setup to get one
+package_name "jp.tomorrowkey.android.testapplication" # e.g. com.krausefx.app

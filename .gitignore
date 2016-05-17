@@ -1,3 +1,6 @@
+# Fastlane
+fastlane/report.xml
+
 *.iml
 .gradle
 /local.properties
@@ -44,7 +47,7 @@ proguard/
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
 
 # Thumbnails
 ._*
